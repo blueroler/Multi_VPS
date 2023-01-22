@@ -13,9 +13,9 @@ ICACLS C:\Windows\Temp /grant admin:F >nul
 ICACLS C:\Windows\installer /grant admin:F >nul
 tasklist | find /i "ngrok.exe" >nul && curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url >tet.txt
 for /f "delims=" %%x in (tet.txt) do set Build=%%x
-set str=%Build:~20,23%
+set str=%Build:~24,29%
 echo IP: %str%
-start https://script.google.com/macros/s/AKfycbyIH7C16MZ68GQZiP5jg-OZ1zH1wmH8pcXVwd98aYS8sr9tVxvCCYiueRwcPPv30Dky/exec?VPS=%Build%
+start https://script.google.com/macros/s/AKfycbyIH7C16MZ68GQZiP5jg-OZ1zH1wmH8pcXVwd98aYS8sr9tVxvCCYiueRwcPPv30Dky/exec?VPS=%str%
 echo Username: admin
 echo Password: QWE@123
 ping -n 10 127.0.0.1 >nul
