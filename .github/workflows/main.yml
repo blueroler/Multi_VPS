@@ -1,7 +1,5 @@
 name: Multi_VPS
-
 on: workflow_dispatch
-
 jobs:
   VPS01:
     runs-on: windows-latest
@@ -36,7 +34,6 @@ jobs:
   VPS02:
     runs-on: windows-latest
     timeout-minutes: 9999
-
     steps:
     - name: Download Ngrok
       run: |
